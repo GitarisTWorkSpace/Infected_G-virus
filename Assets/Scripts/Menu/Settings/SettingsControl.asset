@@ -17,3 +17,4 @@ MonoBehaviour:
   moveBackwardButton: s
   moveLeftButton: a
   moveRightButton: d
+  sprintButton: left shift

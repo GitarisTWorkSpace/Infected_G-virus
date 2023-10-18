@@ -618,6 +618,8 @@ GameObject:
   - component: {fileID: 1344309421}
   - component: {fileID: 1344309423}
   - component: {fileID: 1344309424}
+  - component: {fileID: 1344309425}
+  - component: {fileID: 1344309426}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -689,10 +691,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1344309421}
   settingsControl: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
-  speedSmoothTime: 1
+  speedModel: {fileID: 1344309426}
   speedMove: 6
-  speed: 6
-  speedCurrent: 6
+  speedCurrent: 0
+--- !u!114 &1344309425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344309420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef258f863ac11b49a85bf5f4f2fcb2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedModel: {fileID: 1344309426}
+  movement: {fileID: 1344309424}
+  settings: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
+  speedRun: 12
+  smoothSpeed: 0
+  maxStaminaValue: 200
+  staminaDecrease: 15
+  staminaIncrease: 30
+  staminaValue: 200
+--- !u!114 &1344309426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344309420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0284dfc465b94a469ea5f94ef90ac96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1837338114
 GameObject:
   m_ObjectHideFlags: 0

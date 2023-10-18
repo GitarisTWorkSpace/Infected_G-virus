@@ -4,9 +4,9 @@ public class MovementController : MonoBehaviour
 {
     [SerializeField] private CharacterController playerController;
     [SerializeField] private SettingsControlModel settingsControl;
+    [SerializeField] private SpeedModel speedModel;
 
     [SerializeField] private float speedMove;
-    [SerializeField] private float speed; // убрать сериализацию
     [SerializeField] private float speedCurrent; // убрать сериализацию
 
     private Vector3 moveDirection;
@@ -16,26 +16,6 @@ public class MovementController : MonoBehaviour
     public float GetSpeedCurrent()
     {
         return speedCurrent;
-    }
-
-    public void SetSpeed(float speedValue)
-    {
-        speed += speedValue;
-    }
-
-    private void MoveSpeed()
-    {
-        speed = speedMove;
-    }
-
-    private void StopMoveSpeed()
-    {
-        speed = 0f;
-    }
-
-    private void Stop()
-    {
-        speedCurrent = 0f;
     }
 
     private void HorizontalMove()
@@ -75,21 +55,19 @@ public class MovementController : MonoBehaviour
         HorizontalMove();
         VerticalMove();
 
-
         if(xMove != 0 || zMove != 0)
         {
-            MoveSpeed();
+            speedModel.SetSpeed(speedMove);
         }
         else if(xMove == 0 && zMove == 0)
         {
-            StopMoveSpeed();
-            Stop();
+            //speedModel.Stop();
         }
 
         //xMove = Input.GetAxis("Horizontal");
         //zMove = Input.GetAxis("Vertical");
 
-        speedCurrent = speed;
+        speedCurrent = speedModel.GetSpeed();
 
         if (playerController.isGrounded)
         {
@@ -102,7 +80,7 @@ public class MovementController : MonoBehaviour
         playerController.Move(moveDirection * speedCurrent * Time.deltaTime);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
     }

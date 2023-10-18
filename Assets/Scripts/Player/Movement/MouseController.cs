@@ -31,7 +31,7 @@ public class MouseController : MonoBehaviour
         playerObject.transform.rotation = Quaternion.Euler(0, yRotationCurrent, 0);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CameraRotation();
     }
