@@ -6,48 +6,28 @@ public class MovementController : MonoBehaviour
     [SerializeField] private SettingsControlModel settingsControl;
     [SerializeField] private SpeedModel speedModel;
 
-    [SerializeField] private float speedMove;
-    [SerializeField] private float speedCurrent; // убрать сериализацию
-
     private Vector3 moveDirection;
     private float xMove;
     private float zMove;
 
-    public float GetSpeedCurrent()
-    {
-        return speedCurrent;
-    }
-
     private void HorizontalMove()
     {
         if (Input.GetKey(settingsControl.GetMoveForwardButton()))
-        {
             zMove = 1; 
-        }
         else if (Input.GetKey(settingsControl.GetMoveBackwardButton()))
-        {
             zMove = -1;
-        }
         else
-        {
             zMove = 0;
-        }
     }
 
     private void VerticalMove()
     {
         if (Input.GetKey(settingsControl.GetMoveRightButton()))
-        {
             xMove = 1;
-        }
         else if (Input.GetKey(settingsControl.GetMoveLeftButton()))
-        {
             xMove = -1;
-        }
         else
-        {
             xMove = 0;
-        }
     }
 
     private void MovePlayer()
@@ -55,19 +35,16 @@ public class MovementController : MonoBehaviour
         HorizontalMove();
         VerticalMove();
 
-        if(xMove != 0 || zMove != 0)
+        if (xMove != 0 || zMove != 0)
         {
-            speedModel.SetSpeed(speedMove);
+            speedModel.isMove = true;
+            speedModel.SetSpeed();
         }
-        else if(xMove == 0 && zMove == 0)
+        else if (xMove == 0 && zMove == 0)
         {
-            //speedModel.Stop();
+            speedModel.isMove = false;
+            speedModel.Stop();
         }
-
-        //xMove = Input.GetAxis("Horizontal");
-        //zMove = Input.GetAxis("Vertical");
-
-        speedCurrent = speedModel.GetSpeed();
 
         if (playerController.isGrounded)
         {
@@ -77,7 +54,7 @@ public class MovementController : MonoBehaviour
 
         moveDirection.y -= 0.1f;
 
-        playerController.Move(moveDirection * speedCurrent * Time.deltaTime);
+        playerController.Move(moveDirection * speedModel.GetSpeedCurrent() * Time.deltaTime);
     }
 
     private void FixedUpdate()

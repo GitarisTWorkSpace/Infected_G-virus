@@ -9,6 +9,7 @@ public class SettingsControlModel : ScriptableObject
     [SerializeField] private string moveLeftButton;
     [SerializeField] private string moveRightButton;
     [SerializeField] private string sprintButton;
+    [SerializeField] private string squatDownButton;
 
     public float GetSensivity()
     {
@@ -38,5 +39,10 @@ public class SettingsControlModel : ScriptableObject
     public string GetSprintButton()
     {
         return sprintButton;
+    }
+
+    public string GetSquatDownButton()
+    {
+        return squatDownButton;
     }
 }

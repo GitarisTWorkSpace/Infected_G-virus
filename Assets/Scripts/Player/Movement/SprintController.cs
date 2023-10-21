@@ -3,11 +3,7 @@ using UnityEngine;
 public class SprintController : MonoBehaviour
 {
     [SerializeField] private SpeedModel speedModel;
-    [SerializeField] private MovementController movement;
     [SerializeField] private SettingsControlModel settings;
-
-    [SerializeField] private float speedRun;
-    [SerializeField] private float smoothSpeed;
 
     [SerializeField] private float maxStaminaValue;
     [SerializeField] private float staminaDecrease;
@@ -28,26 +24,28 @@ public class SprintController : MonoBehaviour
     private void StaminaDecrease()
     {
         staminaValue -= staminaDecrease;
+        StaminaCheck();
     }
 
     private void StaminaIncrease()
     {
         staminaValue += staminaIncrease;
+        StaminaCheck();
     }
 
     private void PlayerSprint()
     {
-        if (Input.GetKey(settings.GetSprintButton()))
+        if (Input.GetKey(settings.GetSprintButton()) && staminaValue > 0)
         {
-            speedModel.SetSpeed(speedRun);
-            StaminaDecrease();
-            StaminaCheck();
+            speedModel.isRun = true;
+            if (speedModel.GetSpeedCurrent() > 0)
+                StaminaDecrease();
         }
-        else if(movement.GetSpeedCurrent() == 0)
-        {
+        else
+            speedModel.isRun= false;
+
+        if (speedModel.GetSpeedCurrent() == 0)
             StaminaIncrease();
-            StaminaCheck();
-        }
     }
 
     private void FixedUpdate()

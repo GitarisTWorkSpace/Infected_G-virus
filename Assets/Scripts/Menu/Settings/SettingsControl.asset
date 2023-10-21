@@ -18,3 +18,4 @@ MonoBehaviour:
   moveLeftButton: a
   moveRightButton: d
   sprintButton: left shift
+  squatDownButton: c

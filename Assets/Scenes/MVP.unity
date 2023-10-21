@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 1344309423}
   - component: {fileID: 1344309424}
   - component: {fileID: 1344309425}
+  - component: {fileID: 1344309427}
   - component: {fileID: 1344309426}
   m_Layer: 0
   m_Name: Player
@@ -676,7 +677,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2107355637}
   playerObject: {fileID: 1344309420}
   settingsControll: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
-  smoothTime: 0
+  smoothTime: 0.1
 --- !u!114 &1344309424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,8 +693,6 @@ MonoBehaviour:
   playerController: {fileID: 1344309421}
   settingsControl: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
   speedModel: {fileID: 1344309426}
-  speedMove: 6
-  speedCurrent: 0
 --- !u!114 &1344309425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,13 +706,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedModel: {fileID: 1344309426}
-  movement: {fileID: 1344309424}
   settings: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
-  speedRun: 12
-  smoothSpeed: 0
   maxStaminaValue: 200
-  staminaDecrease: 15
-  staminaIncrease: 30
+  staminaDecrease: 1
+  staminaIncrease: 2
   staminaValue: 200
 --- !u!114 &1344309426
 MonoBehaviour:
@@ -727,7 +723,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0284dfc465b94a469ea5f94ef90ac96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMove: 0
+  speedMove: 6
+  isRun: 0
+  speedRun: 12
+  speedRunSmooth: 0
+  isSquatDown: 0
+  speedSquatDown: 3
   speed: 0
+  speedCurrent: 0
+--- !u!114 &1344309427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344309420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0deb8aa1337d39b4a82fcf4d2e4a8be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedModel: {fileID: 1344309426}
+  settings: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
+  playerController: {fileID: 1344309421}
+  defaulHeight: 1.8
+  squatDownHeight: 1.4
 --- !u!1 &1837338114
 GameObject:
   m_ObjectHideFlags: 0
