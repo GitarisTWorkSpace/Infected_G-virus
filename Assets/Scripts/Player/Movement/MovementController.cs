@@ -10,6 +10,11 @@ public class MovementController : MonoBehaviour
     private float xMove;
     private float zMove;
 
+    public Vector3 GetMoveDirection()
+    {
+        return moveDirection;
+    }
+
     private void HorizontalMove()
     {
         if (Input.GetKey(settingsControl.GetMoveForwardButton()))
