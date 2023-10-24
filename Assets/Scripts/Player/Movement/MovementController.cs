@@ -1,71 +1,127 @@
+using System;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private CharacterController playerController;
-    [SerializeField] private SettingsControlModel settingsControl;
-    [SerializeField] private SpeedModel speedModel;
-
-    private Vector3 moveDirection;
-    private float xMove;
-    private float zMove;
-
-    public Vector3 GetMoveDirection()
+    public class MovementController : MonoBehaviour
     {
-        return moveDirection;
-    }
+        public static Action playerStoped;
 
-    private void HorizontalMove()
-    {
-        if (Input.GetKey(settingsControl.GetMoveForwardButton()))
-            zMove = 1; 
-        else if (Input.GetKey(settingsControl.GetMoveBackwardButton()))
-            zMove = -1;
-        else
-            zMove = 0;
-    }
+        [SerializeField] private MovementConfig config;
+        [SerializeField] private SprintStamina sprintStamina;
+        [SerializeField] private DashStamina dashStamina;
+        [SerializeField] private CharacterController playerController;
 
-    private void VerticalMove()
-    {
-        if (Input.GetKey(settingsControl.GetMoveRightButton()))
-            xMove = 1;
-        else if (Input.GetKey(settingsControl.GetMoveLeftButton()))
-            xMove = -1;
-        else
-            xMove = 0;
-    }
+        private Vector3 moveDirection;
+        private float xMove;
+        private float zMove;
 
-    private void MovePlayer()
-    {
-        HorizontalMove();
-        VerticalMove();
+        [SerializeField] private bool isRun;
+        [SerializeField] private bool isSquatDown;
 
-        if (xMove != 0 || zMove != 0)
+        [SerializeField] private float speedCurrent;
+
+        private void OnEnable()
         {
-            speedModel.isMove = true;
-            speedModel.SetSpeed();
-        }
-        else if (xMove == 0 && zMove == 0)
-        {
-            speedModel.isMove = false;
-            speedModel.Stop();
+            InputManager.moveForwardButtonClicked += MoveForward;
+            InputManager.moveBackwardButtonClicked += MoveBackward;
+            InputManager.stopMoveVertical += StopMoveVertical;
+
+            InputManager.moveRightButtonClicked += MoveRight;
+            InputManager.moveLeftButtonClicked += MoveLeft;
+            InputManager.stopMoveHorizontal += StopMoveHorizontal;
+
+            InputManager.sprintButtonClicked += SprintMove;
+            InputManager.sprintButtonNotClicked += StopSprintMove;
+
+            InputManager.squatDownButtonClicked += SquatDownMove;
+            InputManager.squatDownButtonNotClicked += StopSquatDownMove;
+
+            InputManager.dashButtonClicked += DashPlayer;
         }
 
-        if (playerController.isGrounded)
+        private void OnDisable()
         {
-            moveDirection = new Vector3(xMove, 0, zMove);
-            moveDirection = transform.TransformDirection(moveDirection);
+            InputManager.moveForwardButtonClicked -= MoveForward;
+            InputManager.moveBackwardButtonClicked -= MoveBackward;
+            InputManager.stopMoveVertical -= StopMoveVertical;
+
+            InputManager.moveRightButtonClicked -= MoveRight;
+            InputManager.moveLeftButtonClicked -= MoveLeft;
+            InputManager.stopMoveHorizontal -= StopMoveHorizontal;
+
+            InputManager.sprintButtonClicked -= SprintMove;
+            InputManager.sprintButtonNotClicked -= StopSprintMove;
+
+            InputManager.squatDownButtonClicked -= SquatDownMove;
+            InputManager.squatDownButtonNotClicked -= StopSquatDownMove;
+
+            InputManager.dashButtonClicked -= DashPlayer;
         }
 
-        moveDirection.y -= 0.1f;
+        #region ButtonsMethod
+        private void MoveForward() => zMove = 1;
+        private void MoveBackward() => zMove = -1;
+        private void StopMoveVertical() => zMove = 0;
 
-        playerController.Move(moveDirection * speedModel.GetSpeedCurrent() * Time.deltaTime);
-    }
+        private void MoveRight() => xMove = 1;
+        private void MoveLeft() => xMove = -1;
+        private void StopMoveHorizontal() => xMove = 0;
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
+        private void SprintMove() => isRun = true;
+        private void StopSprintMove() => isRun = false;
+
+        private void SquatDownMove() => isSquatDown = true;
+        private void StopSquatDownMove() => isSquatDown = false;
+        #endregion 
+
+        private bool IsMoved() => xMove != 0 || zMove != 0;
+        private bool IsRun() => isRun && sprintStamina.CanSprint();
+
+        private void PlayerStoped()
+        {
+            if (speedCurrent == 0) playerStoped?.Invoke();
+        }
+
+        private void SetSpeed()
+        {
+            if (IsMoved())
+                speedCurrent = config.GetSpeedMove();
+            else 
+                speedCurrent = 0;
+            if (IsMoved() && IsRun())
+                speedCurrent = config.GetSpeedRun();
+            if (IsMoved() && isSquatDown)
+                speedCurrent = config.GetSpeedSquatDown();
+            if (IsMoved() && IsRun() && isSquatDown)
+                speedCurrent = config.GetSpeedRun() - config.GetSpeedSquatDown();
+        }       
+
+        private void MovePlayer()
+        {
+            SetSpeed();
+            PlayerStoped();
+
+            if (playerController.isGrounded)
+            {
+                moveDirection = new Vector3(xMove, 0, zMove);
+                moveDirection = transform.TransformDirection(moveDirection);
+            }
+
+            moveDirection.y -= 0.1f;
+
+            playerController.Move(moveDirection * speedCurrent * Time.deltaTime);
+        }
+
+        private void DashPlayer()
+        {
+            if (dashStamina.CanDash())
+                playerController.Move(moveDirection * config.GetDashDistanse());
+        }
+
+        private void Update()
+        {
+            MovePlayer();
+        }
     }
 }
-
-

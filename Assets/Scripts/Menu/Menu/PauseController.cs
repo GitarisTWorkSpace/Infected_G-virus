@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject HUD;
     private bool isActive = false;
 
     public void UnPaused()
@@ -23,6 +24,7 @@ public class PauseController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             pausePanel.SetActive(!isActive);
+            HUD.SetActive(isActive);
             isActive = !isActive;
         }
         Time.timeScale = isActive ? 0 : 1;
