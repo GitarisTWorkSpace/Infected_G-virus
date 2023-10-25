@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace Player
 {
     public class DashStamina : MonoBehaviour
     {
+        public static Action changedDashStaminaValue;
+
         [SerializeField] private MovementConfig config;
         [SerializeField] private int dashStaminaValue;
 
@@ -20,12 +23,12 @@ namespace Player
 
         private void OnEnable()
         {
-            InputManager.dashButtonClicked += StaminaDecrease;
+            MovementController.playerDashed += StaminaDecrease;
         }
 
         private void OnDisable()
         {
-            InputManager.dashButtonClicked -= StaminaDecrease;
+            MovementController.playerDashed -= StaminaDecrease;
         }
 
         private void StaminaCheck()
@@ -38,6 +41,7 @@ namespace Player
         {
             dashStaminaValue -= 1;
             StaminaCheck();
+            changedDashStaminaValue?.Invoke();
         }
 
         private IEnumerator StaminaIncrease()
@@ -46,6 +50,7 @@ namespace Player
             {
                 dashStaminaValue += 1;
                 StaminaCheck();
+                changedDashStaminaValue?.Invoke();
                 yield return new WaitForSeconds(config.GetTimeRecoveryDashStamina());
             }
         }

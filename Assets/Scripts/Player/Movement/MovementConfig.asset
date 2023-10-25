@@ -23,5 +23,5 @@ MonoBehaviour:
   defaultHeight: 1.8
   squatDownHeight: 1.4
   dashdistanse: 4
-  maxDashStaminaValue: 4
+  maxDashStaminaValue: 3
   timeRecoveryDashStamina: 10

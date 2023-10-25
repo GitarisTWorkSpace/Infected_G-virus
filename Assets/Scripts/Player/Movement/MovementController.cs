@@ -6,6 +6,7 @@ namespace Player
     public class MovementController : MonoBehaviour
     {
         public static Action playerStoped;
+        public static Action playerDashed;
 
         [SerializeField] private MovementConfig config;
         [SerializeField] private SprintStamina sprintStamina;
@@ -35,7 +36,9 @@ namespace Player
             InputManager.sprintButtonNotClicked += StopSprintMove;
 
             InputManager.squatDownButtonClicked += SquatDownMove;
+            InputManager.squatDownButtonClicked += PlayerSquatDown;
             InputManager.squatDownButtonNotClicked += StopSquatDownMove;
+            InputManager.squatDownButtonNotClicked += PlayerUp;
 
             InputManager.dashButtonClicked += DashPlayer;
         }
@@ -54,7 +57,9 @@ namespace Player
             InputManager.sprintButtonNotClicked -= StopSprintMove;
 
             InputManager.squatDownButtonClicked -= SquatDownMove;
+            InputManager.squatDownButtonClicked -= PlayerSquatDown;
             InputManager.squatDownButtonNotClicked -= StopSquatDownMove;
+            InputManager.squatDownButtonNotClicked -= PlayerUp;
 
             InputManager.dashButtonClicked -= DashPlayer;
         }
@@ -72,7 +77,9 @@ namespace Player
         private void StopSprintMove() => isRun = false;
 
         private void SquatDownMove() => isSquatDown = true;
+        private void PlayerSquatDown() => playerController.height = config.GetSquatDownHeight();
         private void StopSquatDownMove() => isSquatDown = false;
+        private void PlayerUp() => playerController.height = config.GetDefaultHeight();
         #endregion 
 
         private bool IsMoved() => xMove != 0 || zMove != 0;
@@ -116,7 +123,10 @@ namespace Player
         private void DashPlayer()
         {
             if (dashStamina.CanDash())
+            {
                 playerController.Move(moveDirection * config.GetDashDistanse());
+                playerDashed?.Invoke();
+            }
         }
 
         private void Update()

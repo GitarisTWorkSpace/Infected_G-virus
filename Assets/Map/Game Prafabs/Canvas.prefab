@@ -373,7 +373,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2521,7 +2521,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 3
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3170,6 +3170,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3796468919641737475}
+  - component: {fileID: 1856691537684925775}
+  - component: {fileID: 840474306412330384}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -3202,6 +3204,38 @@ RectTransform:
   m_AnchoredPosition: {x: -2, y: -5}
   m_SizeDelta: {x: 1839, y: 950}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1856691537684925775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140958591320093899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d972060d4eb44f438db493dd41dad3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: e26536f758071294b8fbdc9a8cbbc1b7, type: 2}
+  stamina: {fileID: 0}
+  sprintSliderBar: {fileID: 1824601019436762282}
+  sprintStaminaSlider: {fileID: 5424821657870136857}
+  hideTime: 3
+--- !u!114 &840474306412330384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140958591320093899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8578a70fce393f43b06d9d26534f64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: e26536f758071294b8fbdc9a8cbbc1b7, type: 2}
+  stamina: {fileID: 0}
+  dashStaminaSlider: {fileID: 3038918023723081361}
 --- !u!1 &8203454945195624209
 GameObject:
   m_ObjectHideFlags: 0
