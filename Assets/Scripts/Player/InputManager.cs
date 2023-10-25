@@ -62,13 +62,21 @@ namespace Player
 
             SprintMove();
 
-            SquatDowmMove();
+            SquatDowmMove();            
+        }
 
+        private void DashPlayer()
+        {
             if (Input.GetKeyDown(settings.GetDashButton()))
                 dashButtonClicked?.Invoke();
         }
 
         private void Update()
+        {
+            DashPlayer();
+        }
+
+        private void FixedUpdate()
         {
             CheckMovementInput();
         }

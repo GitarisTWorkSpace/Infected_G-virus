@@ -129,7 +129,7 @@ namespace Player
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             MovePlayer();
         }
