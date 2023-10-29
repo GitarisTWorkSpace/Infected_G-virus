@@ -77,7 +77,7 @@ namespace Player
         }
 
         private void FixedUpdate()
-        {
+        {            
             CheckMovementInput();
         }
     }

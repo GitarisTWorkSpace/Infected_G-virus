@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementConfig
   m_EditorClassIdentifier: 
   sensivity: 100
-  smoothTime: 0.1
+  smoothTime: 0.2
   speedMove: 6
   speedRun: 12
   speedSquatDown: 3

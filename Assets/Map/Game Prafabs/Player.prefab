@@ -124,7 +124,7 @@ MonoBehaviour:
   playerCamera: {fileID: 995929743208274986}
   playerObject: {fileID: 995929742728750451}
   settingsControll: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
-  smoothTime: 0.1
+  smoothTime: 0.2
 --- !u!114 &995929742728750455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,16 +478,8 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2755572769184643198, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2755572769184643198, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2755572769184643198, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MoveToScene
       objectReference: {fileID: 0}
     - target: {fileID: 2755572769184643198, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
