@@ -19,6 +19,13 @@ namespace Player
         public static Action squatDownButtonNotClicked;
         public static Action dashButtonClicked;
 
+        public static Action<bool> interactiveButtonCliked;
+
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         private void HorizontalMove()
         {
             if (Input.GetKey(settings.GetMoveRightButton()))
@@ -71,9 +78,18 @@ namespace Player
                 dashButtonClicked?.Invoke();
         }
 
+        private void Interactiv() 
+        {
+            if (Input.GetKeyDown(settings.GetInteractivButton()))
+                interactiveButtonCliked?.Invoke(true);
+            else
+                interactiveButtonCliked?.Invoke(false);
+        }
+
         private void Update()
         {
             DashPlayer();
+            Interactiv();
         }
 
         private void FixedUpdate()

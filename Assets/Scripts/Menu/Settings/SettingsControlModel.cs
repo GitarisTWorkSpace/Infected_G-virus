@@ -12,43 +12,16 @@ public class SettingsControlModel : ScriptableObject
     [SerializeField] private string squatDownButton;
     [SerializeField] private string dashButton;
 
-    public float GetSensivity()
-    {
-        return sensivity;
-    }
+    [SerializeField] private string interactivButton;
 
-    public string GetMoveForwardButton()
-    {
-        return moveForwardButton;
-    }
+    public float GetSensivity() => sensivity;
+    public string GetMoveForwardButton() => moveForwardButton;
+    public string GetMoveBackwardButton() => moveBackwardButton;
+    public string GetMoveLeftButton() => moveLeftButton;
+    public string GetMoveRightButton() => moveRightButton;
+    public string GetSprintButton() => sprintButton;
+    public string GetSquatDownButton() => squatDownButton;
+    public string GetDashButton() => dashButton;
 
-    public string GetMoveBackwardButton()
-    {
-        return moveBackwardButton;
-    }
-
-    public string GetMoveLeftButton()
-    {
-        return moveLeftButton;
-    }
-
-    public string GetMoveRightButton()
-    {
-        return moveRightButton;
-    }
-
-    public string GetSprintButton()
-    {
-        return sprintButton;
-    }
-
-    public string GetSquatDownButton()
-    {
-        return squatDownButton;
-    }
-
-    public string GetDashButton() 
-    { 
-        return dashButton;
-    }
+    public string GetInteractivButton() => interactivButton;
 }

@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce16a94f30bb95b4e9e4294f99ce61c9, type: 3}
-  m_Name: SettingsControl
+  m_Script: {fileID: 11500000, guid: b6d7029151e89604abc079f4962f11f6, type: 3}
+  m_Name: Note 1
   m_EditorClassIdentifier: 
-  sensivity: 100
-  moveForwardButton: w
-  moveBackwardButton: s
-  moveLeftButton: a
-  moveRightButton: d
-  sprintButton: left shift
-  squatDownButton: c
-  dashButton: e
-  interactivButton: f
+  title: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 1"
+  description: "\u0422\u0435\u043A\u0441\u0442 1"

@@ -9,6 +9,8 @@ public class PauseController : MonoBehaviour
     public void UnPaused()
     {
         isActive = false;
+        ChangeCursorState();
+        SetTimeScale();
     }
 
     private void ChangeCursorState()
@@ -19,15 +21,20 @@ public class PauseController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
     }
 
+    private void SetTimeScale()
+    {
+        Time.timeScale = isActive ? 0 : 1;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             pausePanel.SetActive(!isActive);
             HUD.SetActive(isActive);
             isActive = !isActive;
-        }
-        Time.timeScale = isActive ? 0 : 1;
-        ChangeCursorState();
+            ChangeCursorState();
+            SetTimeScale();
+        }   
     }
 }
