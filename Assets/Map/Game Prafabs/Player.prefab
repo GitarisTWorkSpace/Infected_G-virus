@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 995929742728750454}
   - component: {fileID: 3971322565115058724}
   - component: {fileID: 170512382879054423}
+  - component: {fileID: 5474923938530399840}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -202,6 +203,22 @@ MonoBehaviour:
   playerMainCamera: {fileID: 995929743208274986}
   interactivDistance: 4
   interactionText: {fileID: 1385856681385307647}
+--- !u!114 &5474923938530399840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995929742728750451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e92620d53e92c4ba15dce2ddc374df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 11400000, guid: 2c4408f21c8768e4aa1a7763005ee9b0, type: 2}
+  settings: {fileID: 11400000, guid: 193c141b7a266ee409d871f0fa1148cc, type: 2}
+  playerHealthPoints: 0
+  activeMedicKit: 0
 --- !u!1 &995929743208274988
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,3 +586,56 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8140958591320093899, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
   m_PrefabInstance: {fileID: 2718417552640261611}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3169101489451944767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143962022464932128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11070ef8065142842969d2c4e7be1192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 11400000, guid: 2c4408f21c8768e4aa1a7763005ee9b0, type: 2}
+  playerHealthPintsSlider: {fileID: 8296046399581743025}
+  medicKitImage: {fileID: 6444150556996685070}
+  medicKitSprites:
+  - {fileID: 21300000, guid: 99263c75410f61a40b36804e82bbda3a, type: 3}
+  - {fileID: 21300000, guid: 67b9f5b542a05354c868b5e265488035, type: 3}
+  - {fileID: 21300000, guid: 1c41ddfd86ca62e4494300c04655a171, type: 3}
+  countMedicKitByType: {fileID: 7740848222623516448}
+--- !u!114 &6444150556996685070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8995934300644012261, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
+  m_PrefabInstance: {fileID: 2718417552640261611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7740848222623516448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5680382933475490507, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
+  m_PrefabInstance: {fileID: 2718417552640261611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8296046399581743025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6239940016906525274, guid: 0a49cd240dc3c794d8fb32619f06d169, type: 3}
+  m_PrefabInstance: {fileID: 2718417552640261611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

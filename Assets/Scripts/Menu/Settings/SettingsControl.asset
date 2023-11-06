@@ -21,3 +21,5 @@ MonoBehaviour:
   squatDownButton: c
   dashButton: e
   interactivButton: f
+  useMedicKitButton: q
+  changeMedicKitButton: tab

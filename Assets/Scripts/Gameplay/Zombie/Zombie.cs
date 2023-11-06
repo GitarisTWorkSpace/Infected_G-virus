@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : MonoBehaviour, IDamageble
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float damage;
+    public void TakeDamage(float damage)
     {
-        
+        Debug.Log("take damage");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.GetComponent<IDamageble>() != null)
+        {
+            other.GetComponent<IDamageble>().TakeDamage(damage);
+        }
     }
 }

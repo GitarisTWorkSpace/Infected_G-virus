@@ -14,6 +14,9 @@ public class SettingsControlModel : ScriptableObject
 
     [SerializeField] private string interactivButton;
 
+    [SerializeField] private string useMedicKitButton;
+    [SerializeField] private string changeMedicKitButton;
+
     public float GetSensivity() => sensivity;
     public string GetMoveForwardButton() => moveForwardButton;
     public string GetMoveBackwardButton() => moveBackwardButton;
@@ -24,4 +27,7 @@ public class SettingsControlModel : ScriptableObject
     public string GetDashButton() => dashButton;
 
     public string GetInteractivButton() => interactivButton;
+
+    public string GetUseMedicKitButton() => useMedicKitButton;
+    public string GetChangeMedicKitButton() => changeMedicKitButton;
 }
