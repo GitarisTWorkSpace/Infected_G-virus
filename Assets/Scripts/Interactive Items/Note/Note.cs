@@ -13,7 +13,7 @@ namespace Interactiv
         private bool isActive;
         public string GetDescription()
         {
-            return "Нажмите F, чтобы прочесть";
+            return "Нажмите E, чтобы прочесть";
         }
 
         public void Interact()

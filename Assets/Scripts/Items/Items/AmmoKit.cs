@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class AmmoKit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private WeaponAmmoType typeAmmo;
+    [SerializeField] private int countAmmo;
+
+    public void SetTypeAmmo(WeaponAmmoType typeAmmo)
     {
-        
+        this.typeAmmo = typeAmmo;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetAmmoCount(int cauntAmmo)
     {
-        
+        this.countAmmo = cauntAmmo;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player") 
+        {
+            Destroy(gameObject);
+        }
     }
 }

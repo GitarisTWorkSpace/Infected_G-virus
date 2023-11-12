@@ -16,7 +16,7 @@ namespace Interactiv
 
         [SerializeField] private bool onlyOpen;
         [SerializeField] private bool canBeOpenedNow;
-         private bool isOpen;
+        private bool isOpen;
 
         [SerializeField] private float openSpeed;
         [SerializeField] private float openDistanceOrAngle;
@@ -35,6 +35,8 @@ namespace Interactiv
         private Quaternion startRoptation;
         private float startDistanceOrAngle;
         private bool openCloseON;
+
+        public void OpenDoorForKey() => canBeOpenedNow = true;
 
         private void Start()
         {
@@ -61,7 +63,7 @@ namespace Interactiv
         public string GetDescription()
         {
             if (canBeOpenedNow)
-                return "Нажми F, чтобы открыть дверь";
+                return "Нажми E, чтобы открыть дверь";
             else if (onlyOpen && isOpen)
                 return "Нельзя закрыть";
             else

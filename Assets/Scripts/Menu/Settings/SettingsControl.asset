@@ -19,7 +19,7 @@ MonoBehaviour:
   moveRightButton: d
   sprintButton: left shift
   squatDownButton: c
-  dashButton: e
-  interactivButton: f
+  dashButton: space
+  interactivButton: e
   useMedicKitButton: q
   changeMedicKitButton: tab
