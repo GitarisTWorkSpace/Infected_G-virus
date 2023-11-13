@@ -21,6 +21,11 @@ namespace Player
 
         public static Action<bool> interactiveButtonCliked;
 
+        public static Action flashlightButtonCliked;
+
+        public static Action fireButtonCliked;
+        public static Action weaponRealodButtonCliked;
+
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -86,10 +91,30 @@ namespace Player
                 interactiveButtonCliked?.Invoke(false);
         }
 
+        private void UseFlashlight()
+        {
+            if(Input.GetKeyDown(settings.GetUseFlathlightButton()))
+                flashlightButtonCliked?.Invoke();
+        }
+
+        private void UseWapon()
+        {
+            if (Input.GetKeyDown(settings.GetFireButton()))
+            {
+                fireButtonCliked?.Invoke();
+            }
+            if (Input.GetKeyDown(settings.GetWeaponReloadButton()))
+            {
+                weaponRealodButtonCliked?.Invoke();
+            }
+        }
+
         private void Update()
         {
             DashPlayer();
             Interactiv();
+            UseFlashlight();
+            UseWapon();
         }
 
         private void FixedUpdate()

@@ -23,3 +23,4 @@ MonoBehaviour:
   interactivButton: e
   useMedicKitButton: q
   changeMedicKitButton: tab
+  useFlashlightButton: f

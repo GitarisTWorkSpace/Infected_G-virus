@@ -17,6 +17,12 @@ public class SettingsControlModel : ScriptableObject
     [SerializeField] private string useMedicKitButton;
     [SerializeField] private string changeMedicKitButton;
 
+    [SerializeField] private string useFlashlightButton;
+
+    [SerializeField] private string fireButton;
+
+    [SerializeField] private string weaponReloadButton;
+
     public float GetSensivity() => sensivity;
     public string GetMoveForwardButton() => moveForwardButton;
     public string GetMoveBackwardButton() => moveBackwardButton;
@@ -30,4 +36,10 @@ public class SettingsControlModel : ScriptableObject
 
     public string GetUseMedicKitButton() => useMedicKitButton;
     public string GetChangeMedicKitButton() => changeMedicKitButton;
+
+    public string GetUseFlathlightButton() => useFlashlightButton;
+
+    public string GetFireButton() => fireButton;
+
+    public string GetWeaponReloadButton() => weaponReloadButton;
 }
