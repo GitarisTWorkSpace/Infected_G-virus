@@ -23,8 +23,13 @@ namespace Player
 
         public static Action flashlightButtonCliked;
 
-        public static Action fireButtonCliked;
+        public static Action semiFireButtonCliked;
+        public static Action autoFireButtonCliked;
+        public static Action aimButtonCliked;
         public static Action weaponRealodButtonCliked;
+
+        public static Action smallWeaponAttakButtonCliked;
+        public static Action largeweaponAttakButtonCliked;
 
         private void Start()
         {
@@ -100,13 +105,18 @@ namespace Player
         private void UseWapon()
         {
             if (Input.GetKeyDown(settings.GetFireButton()))
-            {
-                fireButtonCliked?.Invoke();
-            }
+                semiFireButtonCliked?.Invoke();
+            if (Input.GetKey(settings.GetFireButton()))
+                autoFireButtonCliked?.Invoke();
+            if (Input.GetKeyDown(settings.GetAimButton()))
+                aimButtonCliked?.Invoke();
             if (Input.GetKeyDown(settings.GetWeaponReloadButton()))
-            {
                 weaponRealodButtonCliked?.Invoke();
-            }
+
+            if (Input.GetKeyDown(settings.GetSmallWeaponAttakButton()))
+                smallWeaponAttakButtonCliked?.Invoke();
+            if (Input.GetKeyDown(settings.GetLargeWeaponAttakButton()))
+                largeweaponAttakButtonCliked?.Invoke();
         }
 
         private void Update()

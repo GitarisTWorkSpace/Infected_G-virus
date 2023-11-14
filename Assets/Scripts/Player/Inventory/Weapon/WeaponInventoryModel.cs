@@ -2,17 +2,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponInventory", menuName = "Inventory/WeaponInventory")]
 public class WeaponInventoryModel : ScriptableObject
 {
-    [SerializeField] private Weapon[] weapons;
+    [SerializeField] private WeaponModel[] weapons;
 
-    public Weapon[] GetAllWeaponInInventory() => weapons;
+    public WeaponModel[] GetAllWeaponInInventory() => weapons;
 
-    public Weapon GetWeaponByIndex(int index)
+    public WeaponModel GetWeaponByIndex(int index)
     {
         if (index >= weapons.Length) return null;
         return weapons[index];
     }
 
-    public void AddWeaponInInventory(int index, Weapon weapon)
+    public void AddWeaponInInventory(int index, WeaponModel weapon)
     {
         if (index >= weapons.Length) return;
         weapons[index] = weapon;

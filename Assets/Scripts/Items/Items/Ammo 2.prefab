@@ -173,5 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d864d7bd677a634d9fcdaa861032d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoInventory: {fileID: 11400000, guid: 5e0059e4362355e4f95c32e3dc496505, type: 2}
   typeAmmo: 0
   countAmmo: 0

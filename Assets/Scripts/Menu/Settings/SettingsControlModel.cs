@@ -20,8 +20,12 @@ public class SettingsControlModel : ScriptableObject
     [SerializeField] private string useFlashlightButton;
 
     [SerializeField] private string fireButton;
+    [SerializeField] private string aimButton;
 
     [SerializeField] private string weaponReloadButton;
+
+    [SerializeField] private string smallWeaponAttakButton;
+    [SerializeField] private string largeWeaponAttakButton;
 
     public float GetSensivity() => sensivity;
     public string GetMoveForwardButton() => moveForwardButton;
@@ -40,6 +44,10 @@ public class SettingsControlModel : ScriptableObject
     public string GetUseFlathlightButton() => useFlashlightButton;
 
     public string GetFireButton() => fireButton;
+    public string GetAimButton() => aimButton;
 
     public string GetWeaponReloadButton() => weaponReloadButton;
+
+    public string GetSmallWeaponAttakButton() => smallWeaponAttakButton;
+    public string GetLargeWeaponAttakButton() => largeWeaponAttakButton;
 }

@@ -2543,7 +2543,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 30, y: 20.8}
-  m_SizeDelta: {x: 34, y: 44}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2299759849193278847
 CanvasRenderer:
@@ -2573,7 +2573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f1006623e6611649a77e76acf333f2c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3890,6 +3890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3796468919641737475}
+  - component: {fileID: 3148251300248534512}
   - component: {fileID: 1856691537684925775}
   - component: {fileID: 840474306412330384}
   - component: {fileID: 8156669992017863392}
@@ -3926,6 +3927,28 @@ RectTransform:
   m_AnchoredPosition: {x: -2, y: -5}
   m_SizeDelta: {x: 1839, y: 950}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3148251300248534512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140958591320093899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077c9073159eb514cbee28abe4b6b959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInventoryModel: {fileID: 11400000, guid: 4f0e55be5afec664c87e40566ed7087d, type: 2}
+  ammoInventoryModel: {fileID: 11400000, guid: 5e0059e4362355e4f95c32e3dc496505, type: 2}
+  ammoInInventoryText: {fileID: 8217551974294827386}
+  weaponUseAmmo: {fileID: 9191661721781691117}
+  ammoSprites:
+  - {fileID: 21300000, guid: 3f1006623e6611649a77e76acf333f2c, type: 3}
+  - {fileID: 21300000, guid: 22f0a98a0fef43a4ea9b709747d4a8b4, type: 3}
+  - {fileID: 21300000, guid: 035c43073d67c5844874f01174aae7e3, type: 3}
+  - {fileID: 0}
+  ammoInWeaponText: {fileID: 817871517558189399}
 --- !u!114 &1856691537684925775
 MonoBehaviour:
   m_ObjectHideFlags: 0

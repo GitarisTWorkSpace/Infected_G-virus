@@ -12,7 +12,7 @@ public class WeaponInventoryView : MonoBehaviour
     [SerializeField] private Sprite[] ammoSprites;
     [SerializeField] private TMP_Text ammoInWeaponText;
 
-    Weapon weaponInHand;
+    WeaponModel weaponInHand;
 
     private void OnEnable()
     {
@@ -33,17 +33,17 @@ public class WeaponInventoryView : MonoBehaviour
         weaponInHand = weaponInventoryModel.GetWeaponByIndex(indexWeapon);
         if (weaponInHand != null)
         {
-            if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Ranged)
+            if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Ranged)
             {
                 weaponUseAmmo.gameObject.SetActive(true);
-                if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Pistol)
+                if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Pistol)
                     weaponUseAmmo.sprite = ammoSprites[0];
-                else if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Automate)
+                else if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Automate)
                     weaponUseAmmo.sprite = ammoSprites[1];
-                else if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Shotgun)
+                else if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Shotgun)
                     weaponUseAmmo.sprite = ammoSprites[2];
             }
-            else if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Melee)
+            else if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Melee)
             {
                 weaponUseAmmo.gameObject.SetActive(true);
                 weaponUseAmmo.sprite = ammoSprites[3];
@@ -60,16 +60,16 @@ public class WeaponInventoryView : MonoBehaviour
     {
         if (weaponUseAmmo != null)
         {
-            if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Ranged)
+            if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Ranged)
             {
-                if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Pistol)
+                if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Pistol)
                     ammoInInventoryText.text = ammoInventoryModel.GetCurrentPistolAmmo().ToString();
-                else if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Automate)
+                else if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Automate)
                     ammoInInventoryText.text = ammoInventoryModel.GetCurrentAutomateAmmo().ToString();
-                else if (weaponInHand.GetWeaponAmmoUseType() == WeaponAmmoType.Shotgun)
+                else if (weaponInHand.GetWeaponAmmoType() == WeaponAmmoType.Shotgun)
                     ammoInInventoryText.text = ammoInventoryModel.GetCurrentShotgunAmmo().ToString();
             }
-            else if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Melee)
+            else if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Melee)
                 ammoInInventoryText.text = "";
             else ammoInInventoryText.text = "";
         }
@@ -80,11 +80,11 @@ public class WeaponInventoryView : MonoBehaviour
     {
         if (weaponUseAmmo != null)
         {
-            if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Ranged)
+            if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Ranged)
             {
-                weaponInHand.GetCurrentAmmoInWeapon().ToString();
+                weaponInHand.GetAmmoInWeapon().ToString();
             }
-            else if (weaponInHand.GetWeaponRangeType() == Weapon.RangeWeaponType.Melee)
+            else if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Melee)
                 ammoInWeaponText.text = "";
             else ammoInWeaponText.text = "";
         }

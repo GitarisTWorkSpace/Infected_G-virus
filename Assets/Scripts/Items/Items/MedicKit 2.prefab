@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthModel: {fileID: 11400000, guid: 2c4408f21c8768e4aa1a7763005ee9b0, type: 2}
-  medicKitIndex: 2
-  medicKitCount: 1
+  medicKitIndex: 0
+  medicKitCount: 0
 --- !u!54 &6868598561249738485
 Rigidbody:
   m_ObjectHideFlags: 0

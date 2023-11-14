@@ -24,3 +24,8 @@ MonoBehaviour:
   useMedicKitButton: q
   changeMedicKitButton: tab
   useFlashlightButton: f
+  fireButton: mouse 0
+  aimButton: mouse 1
+  weaponReloadButton: r
+  smallWeaponAttakButton: mouse 0
+  largeWeaponAttakButton: mouse 1

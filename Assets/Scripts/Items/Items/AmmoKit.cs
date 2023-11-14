@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AmmoKit : MonoBehaviour
 {
+    [SerializeField] private AmmoInventoryModel ammoInventory;
     [SerializeField] private WeaponAmmoType typeAmmo;
     [SerializeField] private int countAmmo;
 
@@ -21,6 +22,12 @@ public class AmmoKit : MonoBehaviour
     {
         if(other.tag == "Player") 
         {
+            if (typeAmmo == WeaponAmmoType.Pistol)
+                ammoInventory.AddPistolAmmo(countAmmo);
+            else if (typeAmmo == WeaponAmmoType.Automate)
+                ammoInventory.AddAutomateAmmo(countAmmo);
+            else if (typeAmmo == WeaponAmmoType.Shotgun)
+                ammoInventory.AddShotgunAmmo(countAmmo);
             Destroy(gameObject);
         }
     }

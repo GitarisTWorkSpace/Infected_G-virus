@@ -1,11 +1,10 @@
 using Interactiv;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponItem : MonoBehaviour, IInteractable
 {
     [SerializeField] private WeaponInventoryModel inventoryModel;
+    [SerializeField] private WeaponModel model;
     public string GetDescription()
     {
         return "Нажми Е, чтобы подобрать оружие";
@@ -17,9 +16,10 @@ public class WeaponItem : MonoBehaviour, IInteractable
         {
             if (inventoryModel.GetWeaponByIndex(i) == null)
             {
-                inventoryModel.AddWeaponInInventory(i, gameObject.GetComponent<Weapon>());
+                inventoryModel.AddWeaponInInventory(i, model);
+                Destroy(gameObject);
                 return;
             }
-        }
+        }        
     }
 }

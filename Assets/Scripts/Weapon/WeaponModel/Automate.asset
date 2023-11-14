@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc87559a51238e48be4e97bc1d69418, type: 3}
+  m_Name: Automate
+  m_EditorClassIdentifier: 
+  index: 0
+  nameWeapon: Automate
+  rangeWeaponType: 0
+  canAim: 0
+  crosshair: 0
+  weaponPrefab: {fileID: 8540687267342922650, guid: bf6d4a2eee80d9248a2b307ef1858519, type: 3}
+  fireRate: 5
+  weaponRange: 50
+  smallDamage: 0
+  largeDamage: 0
+  weaponType: 1
+  typeFireRate: 0
+  weaponAmmoType: 1
+  ammoModel: {fileID: 11400000, guid: 5e0059e4362355e4f95c32e3dc496505, type: 2}
+  rangedWeaponDamage: 50
+  ammoInWeapon: 30
+  maxAmmoInWeapon: 30
