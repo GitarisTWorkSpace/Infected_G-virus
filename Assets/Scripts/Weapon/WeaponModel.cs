@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "WeaponModel/Weapon")]
 public class WeaponModel : ScriptableObject
@@ -15,7 +16,9 @@ public class WeaponModel : ScriptableObject
     [SerializeField] public enum Crosshair { Circle, Small, Medium, Large };
     [SerializeField] private Crosshair crosshair;    
 
-    [SerializeField] private GameObject weaponPrefab;    
+    [SerializeField] private GameObject weaponPrefab;
+
+    [SerializeField] Animator animator;
 
     [SerializeField] private float fireRate;
     [SerializeField] private float weaponRange;
@@ -35,6 +38,11 @@ public class WeaponModel : ScriptableObject
 
     [SerializeField] private AmmoInventoryModel ammoModel;
 
+    [SerializeField] private bool useSpread;
+    [SerializeField] private float spreadFactor;
+
+    [SerializeField] private int shotCount = 1;
+
     [SerializeField] private float rangedWeaponDamage;
 
     [SerializeField] private int ammoInWeapon;
@@ -43,15 +51,75 @@ public class WeaponModel : ScriptableObject
     public WeaponType GetWeaponType() => weaponType;
     public TypeFireRate GetTypeWeaponFireRate() => typeFireRate;
     public WeaponAmmoType GetWeaponAmmoType() => weaponAmmoType;
+    public bool GetUseSpread() => useSpread;
+    public float GetSpreadFactor() => spreadFactor;
+    public int GetShotCount() => shotCount;
     public float GetRangeDamage() => rangedWeaponDamage;
     public int GetAmmoInWeapon() => ammoInWeapon;
     public int GetMaxAmmoInWeapon() => maxAmmoInWeapon;
 
-    public void AddAmmoInWeapon(int value)
+    public void ReloadAmmoInWeapon(int value)
     {
         if (value < 0) return;
-        if (value >= maxAmmoInWeapon) ammoInWeapon = maxAmmoInWeapon;
-        else ammoInWeapon += value;
+        if (value >= maxAmmoInWeapon) value = maxAmmoInWeapon;
+
+        if (weaponAmmoType == WeaponAmmoType.Pistol)
+        {
+            if (ammoModel.GetCurrentPistolAmmo() == 0) return;
+            if (ammoModel.GetCurrentPistolAmmo() >= maxAmmoInWeapon)
+            {
+                ammoModel.SubstractPistolAmmo(value);
+                ammoInWeapon = maxAmmoInWeapon;
+            }
+            else if (ammoModel.GetCurrentPistolAmmo() >= value)
+            {
+                ammoInWeapon += value;
+                ammoModel.SubstractPistolAmmo(value);                
+            }
+            else
+            {
+                ammoInWeapon += ammoModel.GetCurrentPistolAmmo();
+                ammoModel.SubstractPistolAmmo(ammoModel.GetCurrentPistolAmmo());
+            }
+        }
+        else if (weaponAmmoType == WeaponAmmoType.Automate)
+        {
+            if (ammoModel.GetCurrentAutomateAmmo() == 0) return;
+            if (ammoModel.GetCurrentAutomateAmmo() >= maxAmmoInWeapon)
+            {
+                ammoModel.SubstractAutomateAmmo(value);
+                ammoInWeapon = maxAmmoInWeapon;
+            }
+            else if (ammoModel.GetCurrentAutomateAmmo() >= value)
+            {
+                ammoInWeapon += value;
+                ammoModel.SubstractAutomateAmmo(value);
+            }
+            else
+            {
+                ammoInWeapon += ammoModel.GetCurrentAutomateAmmo();
+                ammoModel.SubstractAutomateAmmo(ammoModel.GetCurrentAutomateAmmo());
+            }
+        }
+        else if (weaponAmmoType == WeaponAmmoType.Shotgun)
+        {
+            if (ammoModel.GetCurrentShotgunAmmo() == 0) return;
+            if (ammoModel.GetCurrentShotgunAmmo() >= maxAmmoInWeapon)
+            {
+                ammoModel.SubstractShotgunAmmo(value);
+                ammoInWeapon = maxAmmoInWeapon;
+            }
+            else if (ammoModel.GetCurrentShotgunAmmo() >= value)
+            {
+                ammoInWeapon += value;
+                ammoModel.SubstractShotgunAmmo(value);
+            }
+            else
+            {
+                ammoInWeapon += ammoModel.GetCurrentShotgunAmmo();
+                ammoModel.SubstractShotgunAmmo(ammoModel.GetCurrentShotgunAmmo());
+            }
+        }
     }
 
     public void RemoveAmmoInWeapon(int value)
@@ -66,6 +134,7 @@ public class WeaponModel : ScriptableObject
     public WeaponRangeType GetWeaponRangeType() => rangeWeaponType;
     public CanAim GetCanAim() => canAim;
     public Crosshair GetCrosshair() => crosshair;
+    public Animator GetAminator() => animator;
     public GameObject GetWeaponPrefab() => weaponPrefab;
     public float GetFireRate() => fireRate;
     public float GetRange() => weaponRange;

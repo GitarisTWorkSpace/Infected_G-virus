@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Zombie : MonoBehaviour, IDamageble
+public class Zombie : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float damage;
-    public void TakeDamage(float damage)
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private float healthPoints;
+
+    public float GetCurrentHealh() => healthPoints;
+
+    private void Start()
     {
-        Debug.Log("take damage");
+        healthSlider.maxValue = healthPoints;
+        healthSlider.value = healthPoints;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage(float damage)
     {
-        if(other.GetComponent<IDamageble>() != null)
-        {
-            other.GetComponent<IDamageble>().TakeDamage(damage);
-        }
+        if (damage < 0) return;
+        healthPoints -= damage;
+        healthSlider.value = healthPoints;
+        if (healthPoints <= 0) Destroy(gameObject);
     }
 }

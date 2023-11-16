@@ -58,7 +58,7 @@ public class WeaponInventoryView : MonoBehaviour
 
     private void ChangeAmmoInInventoryInfo()
     {
-        if (weaponUseAmmo != null)
+        if (weaponInHand != null)
         {
             if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Ranged)
             {
@@ -78,12 +78,10 @@ public class WeaponInventoryView : MonoBehaviour
 
     private void ChangeAmmoInWeaponInfo()
     {
-        if (weaponUseAmmo != null)
+        if (weaponInHand != null)
         {
             if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Ranged)
-            {
-                weaponInHand.GetAmmoInWeapon().ToString();
-            }
+                ammoInWeaponText.text = weaponInHand.GetAmmoInWeapon().ToString();
             else if (weaponInHand.GetWeaponRangeType() == WeaponModel.WeaponRangeType.Melee)
                 ammoInWeaponText.text = "";
             else ammoInWeaponText.text = "";

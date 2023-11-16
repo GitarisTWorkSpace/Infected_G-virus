@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5423957952525080724}
   - component: {fileID: 6461250668439590869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 071d452f66a2ddd40b3ba5c81a7941ae, type: 2}
-  inHand: 0
+  inHand: 1
+  playerCamera: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 137
 --- !u!1001 &2755465278267154181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +109,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
       propertyPath: m_Name
       value: pistol2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}

@@ -1,3 +1,4 @@
+using Player;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ namespace Interactiv
 {
     public class Note : MonoBehaviour, IInteractable
     {
+        [SerializeField] private PauseController pauseController;
         [SerializeField] private GameObject NotePanel;
         [SerializeField] private NoteModel model;
         [SerializeField] private TMP_Text titleText;
@@ -23,6 +25,7 @@ namespace Interactiv
             titleText.text = model.GetNoteTitle();
             noteText.text = model.GetNoteDescription();
 
+            pauseController.canPause = false;
             Time.timeScale = isActive ? 0 : 1;
             ChangeCursorState();
         }
@@ -40,6 +43,7 @@ namespace Interactiv
             isActive = false;
             NotePanel.SetActive(isActive);
 
+            pauseController.canPause = true;
             Time.timeScale = isActive ? 0 : 1;
             ChangeCursorState();
         }

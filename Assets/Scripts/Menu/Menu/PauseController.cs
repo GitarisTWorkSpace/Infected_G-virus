@@ -5,7 +5,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject HUD;
     private bool isActive = false;
-
+    public bool canPause = true;
     public void UnPaused()
     {
         isActive = false;
@@ -28,7 +28,7 @@ public class PauseController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canPause)
         {
             pausePanel.SetActive(!isActive);
             HUD.SetActive(isActive);

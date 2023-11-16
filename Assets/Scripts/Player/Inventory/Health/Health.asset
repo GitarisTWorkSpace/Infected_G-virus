@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerHealthPoint: 200
   playerHealthPoint: 200
-  medicKitByTypeAmount: 03000000050000000a000000
+  medicKitByTypeAmount: 000000000000000000000000
   medicKitSetHealthPoint:
   - 60
   - 100

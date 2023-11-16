@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player.Inventory.Health
@@ -5,6 +6,8 @@ namespace Player.Inventory.Health
     [CreateAssetMenu(fileName = "Health", menuName = "Settings/Health")]
     public class HealthModel : ScriptableObject
     {
+        public static Action<int> addedMedicKit;
+
         [SerializeField] private float maxPlayerHealthPoint;
         [SerializeField] private float playerHealthPoint;
 
@@ -18,7 +21,11 @@ namespace Player.Inventory.Health
         public float GetMedicKitHealthPoint(int typeIndex) => medicKitSetHealthPoint[typeIndex];
 
         public void ReduceCountMedicKitByType(int typeIndex, int count) => medicKitByTypeAmount[typeIndex] -= count;
-        public void AddCountMedicKitByType(int typeIndex, int count) => medicKitByTypeAmount[typeIndex] += count;
+        public void AddCountMedicKitByType(int typeIndex, int count)
+        {
+            medicKitByTypeAmount[typeIndex] += count;
+            addedMedicKit?.Invoke(typeIndex);
+        }
         public void SetPlayerHealthPoint(float healthPoint) => playerHealthPoint = healthPoint;
     }
 }

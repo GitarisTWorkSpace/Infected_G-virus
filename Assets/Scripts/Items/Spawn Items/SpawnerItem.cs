@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnerItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject Item;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (gameObject.transform.childCount == 0)
+        {
+            Instantiate(Item, transform.position, Quaternion.identity, transform);
+        }
     }
 }

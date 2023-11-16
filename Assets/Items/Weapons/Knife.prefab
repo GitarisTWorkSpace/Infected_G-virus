@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254381828405350341}
   - component: {fileID: -6002036950396593602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 468363e775aceaa4a9d0b330b3a94193, type: 2}
-  inHand: 0
+  inHand: 1
+  playerCamera: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 137
 --- !u!1 &3426968860808711303
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +62,7 @@ GameObject:
   - component: {fileID: 3426968860808711304}
   - component: {fileID: 3426968860808711306}
   - component: {fileID: 3426968860808711305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife_002_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +117,7 @@ GameObject:
   - component: {fileID: 3426968860858760589}
   - component: {fileID: 3426968860858760591}
   - component: {fileID: 3426968860858760590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife_002_C03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +172,7 @@ GameObject:
   - component: {fileID: 3426968861746033585}
   - component: {fileID: 3426968861746033587}
   - component: {fileID: 3426968861746033586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife_002_C02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +227,7 @@ GameObject:
   - component: {fileID: 3426968862265595271}
   - component: {fileID: 3426968862265595270}
   - component: {fileID: 3426968862265595269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

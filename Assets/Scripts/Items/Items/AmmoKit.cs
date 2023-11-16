@@ -28,6 +28,7 @@ public class AmmoKit : MonoBehaviour
                 ammoInventory.AddAutomateAmmo(countAmmo);
             else if (typeAmmo == WeaponAmmoType.Shotgun)
                 ammoInventory.AddShotgunAmmo(countAmmo);
+
             Destroy(gameObject);
         }
     }

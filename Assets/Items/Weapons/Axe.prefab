@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3593064237813928470}
   - component: {fileID: 3593064237813928471}
   - component: {fileID: 3593064237813928464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3593064237866311816}
   - component: {fileID: 3593064237866311822}
   - component: {fileID: 3593064237866311823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 3593064237938248225}
   - component: {fileID: 3593064237938248231}
   - component: {fileID: 3593064237938248224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3593064238348274637}
   - component: {fileID: 3593064238348274627}
   - component: {fileID: 3593064238348274636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 3593064238359172493}
   - component: {fileID: 3593064238359172483}
   - component: {fileID: 3593064238359172492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3593064238672511420}
   - component: {fileID: 3593064238672511410}
   - component: {fileID: 3593064238672511411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 3593064238749405991}
   - component: {fileID: 3593064238749405989}
   - component: {fileID: 3593064238749405990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 3593064238909793803}
   - component: {fileID: 3593064238909793801}
   - component: {fileID: 3593064238909793802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 3593064239095382644}
   - component: {fileID: 3593064239095382634}
   - component: {fileID: 3593064239095382635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe_002_C08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7132768496019037584}
   - component: {fileID: 3537084514576299556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
@@ -577,4 +577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 9dc6ea5f926c713469e56e57fb9d8798, type: 2}
-  inHand: 0
+  inHand: 1
+  playerCamera: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 137

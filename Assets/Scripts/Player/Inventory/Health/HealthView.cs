@@ -27,6 +27,7 @@ namespace Player.Inventory.Health
             HealthController.playerHealthPointsChanged += ChangeSliderValue;
             HealthController.activMedicKitChanged += ChangeSpriteImage;
             HealthController.medicKitUsed += ChangeCountText;
+            HealthModel.addedMedicKit += ChangeCountText;
         }
 
         private void OnDisable()
@@ -34,6 +35,7 @@ namespace Player.Inventory.Health
             HealthController.playerHealthPointsChanged += ChangeSliderValue;
             HealthController.activMedicKitChanged += ChangeSpriteImage;
             HealthController.medicKitUsed += ChangeCountText;
+            HealthModel.addedMedicKit += ChangeCountText;
         }
 
         private void ChangeSliderValue()

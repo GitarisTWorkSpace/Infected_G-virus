@@ -18,6 +18,7 @@ MonoBehaviour:
   canAim: 1
   crosshair: 0
   weaponPrefab: {fileID: 1602775341144244701, guid: 61ba856d16ef865468cffcf5dae68493, type: 3}
+  animator: {fileID: 0}
   fireRate: 15
   weaponRange: 15
   smallDamage: 0
@@ -25,7 +26,10 @@ MonoBehaviour:
   weaponType: 2
   typeFireRate: 1
   weaponAmmoType: 2
-  ammoModel: {fileID: 0}
+  ammoModel: {fileID: 11400000, guid: 5e0059e4362355e4f95c32e3dc496505, type: 2}
+  useSpread: 0
+  spreadFactor: 0
+  shotCount: 1
   rangedWeaponDamage: 80
-  ammoInWeapon: 5
+  ammoInWeapon: 0
   maxAmmoInWeapon: 5

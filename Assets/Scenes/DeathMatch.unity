@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031308993, g: 0.0061696176, b: 0.014244638, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1782436059367628530, guid: 6238505f852d7b24f8a4a911b890ec9c, type: 3}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: d3532e448595d694fb2208a618a2105c, type: 3}
     - target: {fileID: 6725548288188501293, guid: 6238505f852d7b24f8a4a911b890ec9c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

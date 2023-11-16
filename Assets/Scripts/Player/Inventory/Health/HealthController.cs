@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player.Inventory.Health
 {
-    public class HealthController : MonoBehaviour, IDamageble
+    public class HealthController : MonoBehaviour, IDamageable
     {
         public static Action playerHealthPointsChanged;
         public static Action<int> activMedicKitChanged;
